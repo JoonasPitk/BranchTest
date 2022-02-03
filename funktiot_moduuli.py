@@ -1,12 +1,12 @@
-# X-funktio tarkistaa, onko kulma suora.
+# Funktio tarkistaa, onko kulma suora.
 # TODO: Lisää funktioon virheen laskenta millimetreinä.
 def suorakulma(sivuA, sivuB, lavistaja):
     """Tarkistaa suorakulmaisuuden käyttäen Pythagoraan lausetta.
 
     Args:
-        sivuA (float): Ensimmäisen sivun pituus
-        sivuB (float): Toisen sivun pituus
-        lavistaja (float): Lävistäjän pituus
+        sivuA (float): Ensimmäisen seinän pituus
+        sivuB (float): Toisen seinän pituus
+        lavistaja (float): Huoneen lävistäjän pituus
 
     Returns:
         boolean: TRUE -> suorakulma
