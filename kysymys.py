@@ -18,3 +18,6 @@ def kysy_liukuluku(kysymys):
         print('Syöttämäsi arvo ei ole luku.')
     finally:
         return arvo
+
+if __name__ == "__main__":
+    print('Käytä ohjelmaa ajamalla sitä sovellus.py-tiedoston kautta.')

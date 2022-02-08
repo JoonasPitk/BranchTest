@@ -25,14 +25,5 @@ def suorakulma(sivuA, sivuB, lavistaja):
     finally:
         return ero
 
-
-# Testataan, että toimii. Poista tämä myöhemmin!
-
 if __name__ == "__main__":
-    # Testi, jossa kulma on suora.
-    vastaus = suorakulma(3, 4, 5)
-    print(vastaus)
-
-    # Testi, jossa kulma ei ole suora.
-    vastaus = suorakulma(3, 4, 6)
-    print(vastaus)
+    print('Käytä ohjelmaa ajamalla sitä sovellus.py-tiedoston kautta.')
