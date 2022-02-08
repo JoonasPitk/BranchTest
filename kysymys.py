@@ -2,7 +2,7 @@
 
 # Kysytään käyttäjältä tietoja ja tarkistetaan tietojen oikeellisuus.
 def kysy_liukuluku(kysymys):
-    """Kysyy käyttäkäjältä liukuluvun ja tarkistaa oikeellisuuden.
+    """Kysyy käyttäjältä liukuluvun ja tarkistaa oikeellisuuden.
 
     Args:
         kysymys (string): Kuvaruudulle tulostuva kysymys
