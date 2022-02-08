@@ -12,7 +12,7 @@ def suorakulma(sivuA, sivuB, lavistaja):
         float: Lävistäjän pituusvirhe, 0 -> ei virhettä
     """
     if sivuA * sivuB * lavistaja <= 0:
-        raise ValueError('Yksi tai useampia luvuista on nolla, tai sitä pienempi!')
+        raise ValueError('Jokaisen mitan tulee olla suurempi kuin nolla!')
     try:
         A_nelio = sivuA * sivuA
         B_nelio = sivuB * sivuB
