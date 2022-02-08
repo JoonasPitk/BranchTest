@@ -11,8 +11,8 @@ def suorakulma(sivuA, sivuB, lavistaja):
     Returns:
         float: Lävistäjän pituusvirhe, 0 -> ei virhettä
     """
-    if not sivuA * sivuB * lavistaja:
-        raise ValueError('Yksi tai useampia luvuista on nolla!')
+    if sivuA * sivuB * lavistaja <= 0:
+        raise ValueError('Yksi tai useampia luvuista on nolla, tai sitä pienempi!')
     try:
         A_nelio = sivuA * sivuA
         B_nelio = sivuB * sivuB
