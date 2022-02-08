@@ -3,7 +3,7 @@
 # KIRJASTOJEN JA MODUULIEN LATAUS
 
 # Otetaan käyttöön Windows-äänikirjasto (pythonin sisäänrakennettu).
-import winsound
+# import winsound
 
 # Otetaan käyttöön oma funktiomoduuli.
 import funktiot_moduuli
