@@ -42,18 +42,22 @@ mittaustulokset = []
 # Ikuinen silmukka.
 while True:
     # Tätä toistetaan, kunnes käyttäjä sulkee ohjelman.
-    seina1 = kysymys.kysy_liukuluku('Anna ensimmäisen seinän pituus metreinä: ')
-    seina2 = kysymys.kysy_liukuluku('Anna toisen seinän pituus metreinä: ')
-    lavistaja = kysymys.kysy_liukuluku('Anna huoneen ristimitta metreinä: ')
-    # TODO: Lisää tähän kysymys siitä, mikä huonetyyppi on kyseessä.
+    seina1 = kysymys.kysy_liukuluku('Anna ensimmäisen seinän pituus (mm): ')
+    seina2 = kysymys.kysy_liukuluku('Anna toisen seinän pituus (mm): ')
+    lavistaja = kysymys.kysy_liukuluku('Anna huoneen ristimitta (mm): ')
+    # Kysytään huonetyyppi.
+    huone = input('Mikä huone on kyseessä? ').upper()
     mittaustulokset.append(seina1)
     mittaustulokset.append(seina2)
     mittaustulokset.append(lavistaja)
 
-    # TODO: Muuta siten, että kertoo, onko huonekohtaisten rajojen sisällä.
-    # Kerrotaan, onko tila suorakulmainen.
-    print('Ero suorakulmaan on', funktiot_moduuli.suorakulma(
-        seina1, seina2, lavistaja))
+    # Haetaan raja-arvo sanakirjasta. Oletusarvo 50 mm.
+    raja_arvo = select_case(huoneraja_arvot, huone, 50)
+
+    # Ilmoitetaan ero ja suurin sallittu poikkeama.
+    ero = funktiot_moduuli.suorakulma(seina1, seina2, lavistaja)
+    print('Ero suorakulmaan oli', ero, '\nSuurin sallittu on', raja_arvo)
+    print()
 
     # Kysytään käyttäjältä, haluaako jatkaa.
     lopetetaan = input('Paina L, jos haluat lopettaa: ').upper()
@@ -63,23 +67,17 @@ while True:
 # Ohjelman suoritus päättyy.
 
 # Kysytään mittaajan ja työmaan tiedot.
-tyomaa = input(
-    'Minkä tyyppinen työmaa oli (kerrostalo, rivitalo, tai OK-talo): ').lower()
+# tyomaa = input(
+#     'Minkä tyyppinen työmaa oli (kerrostalo, rivitalo, tai OK-talo): ').lower()
 
 # Ilmoitetaan, montako senttiä mittauksessa saa olla virhettä IF-rankenteen avulla.
 
-if tyomaa == 'kerrostalo':
-    print('Enimmäisvirhe saa olla 10 mm.')
-elif tyomaa == 'rivitalo':
-    print('Enimmäisvirhe saa olla 20 mm.')
-else:
-    print('Maksimivirhe saa olla 50 mm.')
-
-# Kysytään huonetyyppi.
-huone = input('Mikä huone on kyseessä? ').upper()
-
-# Haetaan raja-arvo sanakirjasta. Oletusarvo 50 mm.
-raja_arvo = select_case(huoneraja_arvot, huone, 50)
+# if tyomaa == 'kerrostalo':
+#     print('Enimmäisvirhe saa olla 10 mm.')
+# elif tyomaa == 'rivitalo':
+#     print('Enimmäisvirhe saa olla 20 mm.')
+# else:
+#     print('Maksimivirhe saa olla 50 mm.')
 
 print('Enimmäisero', huone, 'on', raja_arvo, 'mm')
 
