@@ -54,7 +54,7 @@ def summaa_merkit(merkkijono):
     summa = 0
     for kirjain in merkkijono:
         numeroarvo = ord(kirjain)
-        summa = summa + numeroarvo
+        summa += numeroarvo
     return summa
 
 
