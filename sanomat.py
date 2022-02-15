@@ -1,6 +1,6 @@
 # MODUULI MITTAUSSANOMIEN KÄSITTELYYN
 
-# TODO: tee esimerkki siitä, miten rakennetaan sanoma.
+# TODO: Tee esimerkki siitä, miten rakennetaan sanoma.
 
 # Sanoma koostuu alkumerkistä <, datasta, loppumerkistä > ja varmistussummasta.
 # Varmistussumma lasketaan siten, että kirjainten ASCII-koodit
@@ -8,7 +8,7 @@
 # Sanoman sisältö koostuu kentistä sivuA, sivuB, ristimitta ja virhe.
 # Erottimena kenttien välillä on pystyviiva |
 
-# TODO: esimerkki, miten puretaan
+# TODO: Esimerkki, miten puretaan
 # sanoman sisältämät tiedot tallennetaan avain-arvopariksi.
 # Esim. {'seinä 1' : 'seinä 2' : 2500 ...}.
 # Tietojen oikeellisuus tarkistetaan laskemalla varmistussumma
@@ -17,7 +17,8 @@
 # Kirjastojen ja moduulien lataukset
 
 # Funktio, jolla muodostetaan sanoman sisältö.
-def muodosta_sanoma(seina1, seina2, ristimitta, virhe):
+
+def muodosta_sanoma2(seina1, seina2, ristimitta, virhe):
     """Muodostaa merkkijonon sanomarakenteen mukaan.
 
     Args:
@@ -33,8 +34,9 @@ def muodosta_sanoma(seina1, seina2, ristimitta, virhe):
         str(ristimitta) + '|' + str(virhe) + '|'
     return merkkijono
 
+# Tai
 
-def muodosta_sanoma2(seina1, seina2, ristimitta, virhe):
+def muodosta_sanoma(seina1, seina2, ristimitta, virhe):
     """Muodostaa merkkijonon sanomarakenteen mukaan.
 
     Args:
@@ -51,6 +53,14 @@ def muodosta_sanoma2(seina1, seina2, ristimitta, virhe):
 
 
 def summaa_merkit(merkkijono):
+    """Laskee merkkijonon kirjainten ASCII-arvot yhteen.
+
+    Args:
+        merkkijono (string): Merkkijono, jonka kirjaimista summa lasketaan
+
+    Returns:
+        integer: Kirjainten ASCII-koodien summa
+    """
     summa = 0
     for kirjain in merkkijono:
         numeroarvo = ord(kirjain)
@@ -59,20 +69,50 @@ def summaa_merkit(merkkijono):
 
 
 def laske_varmiste(summa):
+    """Laskee modulo 127 tarkisteen.
+
+    Args:
+        summa (integer): Luku, josta tarkiste lasketaan
+
+    Returns:
+        integer: Jakojäännös 127:llä jaettaessa
+    """
     varmiste = summa % 127
     return varmiste
+
+def lopullinen_sanoma(sanoma, varmiste):
+    """Koostaa lopullisen sanoman.
+
+    Args:
+        sanoma (string): Pituustiedot sisältävä merkkijono
+        varmiste (integer): Varmiste
+
+    Returns:
+        string: Kokonainen sanoma, jossa alku- ja loppumerkit mukana
+    """
+    varmiste_str = str(varmiste)
+    sanoma = '<' + sanoma + varmiste_str + '>'
+    return sanoma
+
 
 # TODO: Yhdistä kaikki yhteen sanomaan, eli alku- ja loppumerkit sekä varmiste tekstinä.
 # TODO: Refaktoroi summa_merkit() ja laske_varmisteet() -funktiot yhdeksi funktioksi
 # siten, että jakaja on funktion toisena argumenttina.
 
+def muodosta_varmiste(merkit, jakaja):
+    
+    varmiste = ''
+    return
+
 if __name__ == "__main__":
-    merkkijono = muodosta_sanoma2(3000, 4000, 5003, 3)
+    merkkijono = muodosta_sanoma(3000, 4000, 5003, 3)
     summa = summaa_merkit(merkkijono)
     print(merkkijono)
     print('Merkkien summa on:', summa)
     varmiste = laske_varmiste(summa)
     print('Modulo 127 varmiste on', varmiste)
+    valmis_sanoma = lopullinen_sanoma(merkkijono, varmiste)
+    print('Valmis sanoma näyttää tältä:', valmis_sanoma)
 
 # if __name__ == "__main__":
 #     print('Käytä ohjelmaa ajamalla sitä sovellus.py-tiedoston kautta.')
