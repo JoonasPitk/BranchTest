@@ -100,8 +100,8 @@ def lopullinen_sanoma(sanoma, varmiste):
 # siten, että jakaja on funktion toisena argumenttina.
 
 
-# Funktio hyödyntää aiemmin määriteltyjä funktioita.
-def muodosta_varmiste2(merkit, jakaja):
+# Muodostetaan merkeistä varmiste valittua jakajaa käyttäen.
+def muodosta_varmiste(merkit, jakaja):
     """Muodostaa merkkijonosta varmisteen käyttäjän määrittelemällä jakajalla.
 
     Args:
@@ -111,24 +111,7 @@ def muodosta_varmiste2(merkit, jakaja):
     Returns:
         string: jakojäännös merkkijonoksi muutettuna
     """
-    summa = 0
-    for kirjain in merkit:
-        numeroarvo = ord(kirjain)
-        summa += numeroarvo
-
-    jakojaannos = summa % jakaja
-    varmiste = str(jakojaannos)
-    return varmiste
-
-# Funktio hyödyntää aiemmin määriteltyjä funktioita.
-def muodosta_varmiste(merkit, jakaja):
-    summa = summaa_merkit(merkit)
-    varmiste = str(summa % jakaja)
-    return varmiste
-
-# # Koodia voidaan edelleen hyödyntää.
-# def muodosta_varmiste(merkit, jakaja):
-#     return str(summaa_merkit(merkit) % jakaja)
+    return str(summaa_merkit(merkit) % jakaja)
 
 if __name__ == "__main__":
     merkkijono = muodosta_sanoma(3000, 4000, 5003, 3)
