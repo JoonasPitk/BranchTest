@@ -16,8 +16,6 @@
 
 # Funktio, jolla muodostetaan sanoman sisältö.
 
-from posixpath import split
-
 
 def muodosta_sanoma2(seina1, seina2, ristimitta, virhe):
     """Muodostaa merkkijonon sanomarakenteen mukaan.
