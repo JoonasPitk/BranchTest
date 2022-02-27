@@ -96,18 +96,16 @@ def pura_sanoma(sanoma, alkumerkki, loppumerkki, erotin, jakaja):
                 # Lasketaan varmiste uudelleen.
                 laskettu_varmiste = int(muodosta_varmiste(arvo_osat, jakaja))
 
+                # Varmistetaan, että alkuperäinen ja uudelleenlaskettu varmiste ovat samat.
+                if alkuperainen_varmiste == laskettu_varmiste:
+                    arvot = (osat[0:-1])  # Muodostetaan arvoluettelo.
+
+                else:
+                    virhekoodi = 4
+                    virhesanoma = 'Sanoma vahingoittunut, varmistussumma ei täsmää.'
             else:
                 virhekoodi = 3
-                virhesanoma = "Sanoma ei sisällä tarvittavaa dataa, viestissä ainoastaan varmiste."
-
-            # Varmistetaan, että alkuperäinen ja uudelleenlaskettu varmiste ovat samat.
-            if alkuperainen_varmiste == laskettu_varmiste:
-                arvot = (osat[0:-1])  # Muodostetaan arvoluettelo.
-
-            else:
-                virhekoodi = 4
-                virhesanoma = 'Sanoma vahingoittunut, varmistussumma ei täsmää.'
-
+                virhesanoma = 'Sanoma ei sisällä tarvittavaa dataa, viestissä ainoastaan varmiste.'
         else:
             virhekoodi = 2
             virhesanoma = 'Virhe sanoma vajaa, loppumerkki puuttuu.'
