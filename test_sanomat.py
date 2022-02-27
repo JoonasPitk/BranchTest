@@ -21,5 +21,7 @@ def test_luo_sanoma():
 
 def test_pura_sanoma():
     assert sanomat.pura_sanoma('<3000|4000|5003|3|122>', '<', '>', '|', 127) == [['3000', '4000', '5003', '3',], 0, 'Data OK']
-
-# TODO: Tee loput testit, joissa näkyy virheilmoitukset ja niiden koodit.
+    assert sanomat.pura_sanoma('3000|4000|5003|3|122>', '<', '>', '|', 127) == [[], 1, 'Sanoma vajaa, alkumerkki puuttuu.']
+    assert sanomat.pura_sanoma('<3000|4000|5003|3|122', '<', '>', '|', 127) == [[], 2, 'Virhe sanoma vajaa, loppumerkki puuttuu.']
+    assert sanomat.pura_sanoma('<122>', '<', '>', '|', 127) == [[], 3, 'Sanoma ei sisällä tarvittavaa dataa, viestissä ainoastaan varmiste.']
+    assert sanomat.pura_sanoma('<3000|4000|5003|3|125>', '<', '>', '|', 127) == [[], 4, 'Sanoma vahingoittunut, varmistussumma ei täsmää.']
