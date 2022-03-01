@@ -121,3 +121,8 @@ def pura_sanoma(sanoma, alkumerkki, loppumerkki, erotin, jakaja):
 
     # Palautetaan arvot.
     return [arvot, virhekoodi, virhesanoma]
+
+
+if __name__ == "__main__":
+    sanoma = luo_sanoma([3000, 4000, 5000, 0], '<', '>', '|', 127)
+    print(sanoma)
