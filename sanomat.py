@@ -126,3 +126,6 @@ def pura_sanoma(sanoma, alkumerkki, loppumerkki, erotin, jakaja):
 if __name__ == "__main__":
     sanoma = luo_sanoma([3000, 4000, 5000, 0], '<', '>', '|', 127)
     print(sanoma)
+
+    purettu_sanoma = pura_sanoma(sanoma, '<', '>', '|', 127)
+    print(purettu_sanoma)
