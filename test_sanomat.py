@@ -20,8 +20,13 @@ def test_luo_sanoma():
     assert sanomat.luo_sanoma(mitatut_arvot, '<', '>', '|', 127) == '<3000|4000|5003|3|122>'
 
 def test_pura_sanoma():
+    # Ehjä sanoma.
     assert sanomat.pura_sanoma('<3000|4000|5003|3|122>', '<', '>', '|', 127) == [['3000', '4000', '5003', '3',], 0, 'Data OK']
+    # Alkumerkki puuttuu.
     assert sanomat.pura_sanoma('3000|4000|5003|3|122>', '<', '>', '|', 127) == [[], 1, 'Sanoma vajaa, alkumerkki puuttuu.']
+    # Loppumerkki puuttuu.
     assert sanomat.pura_sanoma('<3000|4000|5003|3|122', '<', '>', '|', 127) == [[], 2, 'Virhe sanoma vajaa, loppumerkki puuttuu.']
+    # Pelkkä varmiste.
     assert sanomat.pura_sanoma('<122>', '<', '>', '|', 127) == [[], 3, 'Sanoma ei sisällä tarvittavaa dataa, viestissä ainoastaan varmiste.']
+    # Varmistussumma muuttunut.
     assert sanomat.pura_sanoma('<3000|4000|5003|3|125>', '<', '>', '|', 127) == [[], 4, 'Sanoma vahingoittunut, varmistussumma ei täsmää.']

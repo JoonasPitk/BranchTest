@@ -13,6 +13,7 @@
 
 # Kirjastojen ja moduulien lataukset
 
+
 def summaa_merkit(merkkijono):
     """Laskee merkkijonon kirjainten ASCII-arvot yhteen.
 
@@ -28,9 +29,11 @@ def summaa_merkit(merkkijono):
         summa += numeroarvo
     return summa
 
+
 # Muodostetaan merkeistä modulo-varmiste valittua jakajaa käyttäen.
 def muodosta_varmiste(merkit, jakaja):
     return str(summaa_merkit(merkit) % jakaja)
+
 
 # Yleispätevä funktio sanoman muodostamiseen.
 def luo_sanoma(arvot, alkumerkki, loppumerkki, erotin, jakaja):
@@ -91,8 +94,8 @@ def pura_sanoma(sanoma, alkumerkki, loppumerkki, erotin, jakaja):
             if len(osat) >= 2:
                 # Luetaan varmiste ja muutetaan se kokonaisluvuksi.
                 alkuperainen_varmiste = int(osat[-1])
-                arvo_osat = f"{'|'.join(osat[0:-1])}|"
                 # Muodostetaan arvoista ja erottimesta sanoman arvot sisältävä osa.
+                arvo_osat = f"{'|'.join(osat[0:-1])}|"
                 # Lasketaan varmiste uudelleen.
                 laskettu_varmiste = int(muodosta_varmiste(arvo_osat, jakaja))
 
@@ -103,12 +106,15 @@ def pura_sanoma(sanoma, alkumerkki, loppumerkki, erotin, jakaja):
                 else:
                     virhekoodi = 4
                     virhesanoma = 'Sanoma vahingoittunut, varmistussumma ei täsmää.'
+            
             else:
                 virhekoodi = 3
                 virhesanoma = 'Sanoma ei sisällä tarvittavaa dataa, viestissä ainoastaan varmiste.'
+        
         else:
             virhekoodi = 2
             virhesanoma = 'Virhe sanoma vajaa, loppumerkki puuttuu.'
+    
     else:
         virhekoodi = 1
         virhesanoma = 'Sanoma vajaa, alkumerkki puuttuu.'
